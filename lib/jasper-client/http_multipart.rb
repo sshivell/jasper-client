@@ -56,10 +56,9 @@ module HTTPMultipart
       end
       
       # Write the content from this part to a file having name.
-      def write_to_file(name = :internal)
+      def write_to_file(name = :internal, style='w')
         name = suggested_filename if :internal == name
-        
-        open(name, 'w') do |fh|
+        open(name, style) do |fh|
           fh.write self.body
         end
       end
